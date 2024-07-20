@@ -33,27 +33,5 @@ Additional Code
 	</button>
 </form>
 
--- Show logo on focus for fixed header that is initially hidden
-$("body>a.screen-reader-text").on('keydown', function(n){
-  if(n.keyCode==9 || n.keyCode==13 ){ //tab, enter
-    $("header").addClass("et-fixed-header");
-  }
-});
-
--- Play/Pause for video
--- add button with id=video-play-stop
-
-var $playStop = $("#video-play-stop");
-var playing = true;
-$playStop.on("click", function (e) {
-    e.preventDefault();
-    if (playing==false) {
-		$('.mejs-mediaelement video').trigger('play');
-		playing=true;
-    } else {
-		$('.mejs-mediaelement video').trigger('pause');
-		playing=false;
-    }
-});
 
 
