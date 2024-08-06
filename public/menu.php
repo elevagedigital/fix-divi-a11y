@@ -8,7 +8,12 @@
  * @subpackage Fix_Divi/public
  */
 
-$header = get_option('et_divi')['header_style'];
+	if ( isset(get_option('et_divi')['header_style'] )) {
+		$header = get_option('et_divi')['header_style'];
+	}
+	else {
+		$header='left';
+	}
 
 	/**
 	*
