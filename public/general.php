@@ -31,10 +31,6 @@
 	}
 
 	function fix_divi_register_settings() {
-    register_setting( 'fix_divi_plugin_options', 'fix_divi_plugin_options', 'fix_divi_plugin_options_validate' );
-    add_settings_section( 'divi_menu_style', 'Divi Header Style', '', 'fix_divi_plugin' );
-
-    add_settings_field( 'fix_divi_plugin_setting_menu_style', 'Header Style', 'fix_divi_plugin_setting_menu_style', 'fix_divi_plugin', 'divi_menu_style' );
 		
 	add_settings_section( 'divi_focus_indicator', 'Focus Indicator Color', '', 'fix_divi_plugin' );
 		
@@ -44,28 +40,9 @@
 	add_action( 'admin_init', 'fix_divi_register_settings' );
 
 	function fix_divi_plugin_options_validate( $input ) {
-		$newinput['menu_style'] = $input['menu_style'];
+		//$newinput['menu_style'] = $input['menu_style'];
 		$newinput['focus_indicator'] = $input['focus_indicator'];
 		return $newinput;
-	}
-
-	function fix_divi_plugin_setting_menu_style() {
-		$options = get_option( 'fix_divi_plugin_options' );
-		if (!isset($options['menu_style']))
-		{
-			$options['menu_style']='default';
-		}
-		?>
-		<input type="radio" id="default" name="fix_divi_plugin_options[menu_style]" value="default"   
-		<?php if($options['menu_style']=='default'){echo "checked";} ?>>
-		<label for="default">Default/Centered</label><br>
-		<input type="radio" id="slide" name="fix_divi_plugin_options[menu_style]" value="slide" <?php if($options['menu_style']=='slide'){echo "checked";} ?>>
-		<label for="slide">Slide In</label><br>
-		<input type="radio" id="slide" name="fix_divi_plugin_options[menu_style]" value="fullwidth" <?php if($options['menu_style']=='fullwidth'){echo "checked";} ?>>
-		<label for="slide">Fullwidth</label><br>
-		<input type="radio" id="custom" name="fix_divi_plugin_options[menu_style]" value="custom" <?php if($options['menu_style']=='custom'){echo "checked";} ?>>
-		<label for="custom">Custom (using Custom Page Builder Header)</label>
-		<?php
 	}
 
 	function fix_divi_plugin_setting_focus_indicator() {
