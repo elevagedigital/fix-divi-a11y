@@ -1,5 +1,9 @@
 # fix-divi-a11y
 
+Version 1.1
+=======================================
+*Update menu.php to pull header style from Divi settings
+
 Version 1.0 Plugin Features
 =========================================
 * Replaces default meta viewport tag with one that allows zooming in/out
@@ -21,5 +25,5 @@ changes to header.php also recommended for the search form.
 Directions
 ====================================================
 1. Install plugin
-2. Go to Settings > Fix Divi A11y to set your heading style and focus indicator color
+2. Go to Settings > Fix Divi A11y to set your focus indicator color
 3. Copy the contents of header-new.php (based on Divi version 4.25.2) to your header.php file
