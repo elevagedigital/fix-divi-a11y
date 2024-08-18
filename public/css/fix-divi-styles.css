@@ -14,7 +14,7 @@
 
 /**Remove Animation**/
 @media (prefers-reduced-motion){
-	.et_pb_module.et_animated, .et_pb_column.et_animated, .et_pb_row.et_animated{
+	.et_pb_module.et_animated, .et_pb_column.et_animated, .et_pb_row.et_animated, body .et_pb_image{
 		opacity: 1 !important;
 		transform:none!important;
 		transition:none!important;
