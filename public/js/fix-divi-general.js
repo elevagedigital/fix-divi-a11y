@@ -11,7 +11,6 @@ jQuery(document).ready(function($) {
 	
 	/*move skip link to main landmark div*/
 	$("#skip-link").on("click", function(){
-		//alert("click");
 		$('[role="main"]').attr("tabIndex", "0").focus();
 	})
 	
