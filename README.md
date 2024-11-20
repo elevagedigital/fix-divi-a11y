@@ -1,5 +1,9 @@
 # fix-divi-a11y
 
+Version 1.1.01
+======================================
+*update CSS to include .screen-reader-text:focus and show label for password protection form
+
 Version 1.1
 =======================================
 *Update menu.php to pull header style from Divi settings
