@@ -10,6 +10,22 @@
     word-wrap: normal !important;
 }
 
+.screen-reader-text:focus {
+    background-color: #ddd;
+    clip: auto !important;
+    clip-path: none;
+    display: block;
+    font-size: 1em;
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000;
+}
+
 #skip-link:focus{z-index: 100001;}
 
 /**Remove Animation**/
@@ -371,3 +387,8 @@ button.et_close_search_field .fd-close:after{
 
 .et_pb_widget .wp-block-search__label{display:block;}
 .et_pb_widget .wp-block-search__button{top: auto !important; bottom:0;}
+
+/*Password Form Label*/
+.et_password_protected_form label{
+	display: block !important;
+}
