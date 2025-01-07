@@ -201,7 +201,7 @@
 					$slide_nav = wp_nav_menu( array( 'theme_location' => 'primary-menu', 'container' => '', 'fallback_cb' => '', 'echo' => false, 'items_wrap' => '%3$s' ) );
 					$slide_nav .= wp_nav_menu( array( 'theme_location' => 'secondary-menu', 'container' => '', 'fallback_cb' => '', 'echo' => false, 'items_wrap' => '%3$s' ) );
 				?>
-				<nav id="mobile-menu-slide-nav">
+				<nav id="mobile-menu-slide-nav" aria-label="Primary Menu">
 				<ul id="mobile_menu_slide" class="<?php echo esc_attr( $slide_menu_class ); ?>">
 
 				<?php
@@ -276,7 +276,7 @@
 			?>
 				<div id="et-top-navigation" data-height="<?php echo esc_attr( et_get_option( 'menu_height', '66' ) ); ?>" data-fixed-height="<?php echo esc_attr( et_get_option( 'minimized_menu_height', '40' ) ); ?>">
 					<?php if ( ! $et_slide_header || is_customize_preview() ) : ?>
-						<nav id="top-menu-nav">
+						<nav id="top-menu-nav" aria-label="Primary Menu">
 						<?php
 							$menuClass = 'nav';
 							if ( 'on' === et_get_option( 'divi_disable_toptier' ) ) $menuClass .= ' et_disable_top_tier';
