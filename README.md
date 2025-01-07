@@ -1,5 +1,10 @@
 # fix-divi-a11y
 
+Version 1.1.02
+======================================
+*header-new.php: Added aria label of "Primary Menu" to nav tags on lines 204 and 279.  This label can be changed to whatever is most appropriate for your design
+*footer-new: added footer-new file to replace footer.php in child theme.  If there is a menu associated with the Footer Menu location, it will be wrapped in a nav tag and that nav tag will have an aria label of "Footer Menu".  This value can be changed to whatever is most appropriate to your design.
+
 Version 1.1.01
 ======================================
 *update CSS to include .screen-reader-text:focus and show label for password protection form
