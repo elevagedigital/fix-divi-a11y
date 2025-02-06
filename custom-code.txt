@@ -1,3 +1,8 @@
+Hide button icons from screen readers - use alt text for CSS content (replace "E" with the code for the specific icon you use
+body .et_pb_button:after{
+content: 'E' / "" !important;
+}
+
 
 Show logo on focus for fixed header that is initially hidden
 $("body>a.screen-reader-text").on('keydown', function(n){
