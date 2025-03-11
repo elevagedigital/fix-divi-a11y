@@ -158,7 +158,7 @@ jQuery(document).ready(function($) {
 		$(this).attr({
 			'id':'et_pb_accordion_content_' + e,
 			'role': 'region',
-			'aria-labeledby': 'et_pb_accordion_control_' + e
+			'aria-labelledby': 'et_pb_accordion_control_' + e
 		});
 	});
 	
@@ -166,7 +166,7 @@ jQuery(document).ready(function($) {
 		$(this).attr({
 			'id':'et_pb_toggle_content_' + e,
 			'role': 'region',
-			'aria-labeledby': 'et_pb_toggle_control_' + e
+			'aria-labelledby': 'et_pb_toggle_control_' + e
 		});
 	});
 	
