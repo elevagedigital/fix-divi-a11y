@@ -5,7 +5,7 @@
  * Description:       Fix Accessibility Issues in Divi Theme and Page Builder
  * Requires at least: 6.3
  * Requires PHP:      8.1
- * Version:           1.1.01
+ * Version:           1.1.03
  * Author:            Elevage Digital
  * Author URI:https://elevagedigital.com/?utm_source=wordpress&utm_medium=referral&utm_campaign=fixdivi
  * License:           GPL-2.0-or-later
