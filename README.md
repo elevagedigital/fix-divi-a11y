@@ -1,5 +1,9 @@
 # fix-divi-a11y
 
+Version 1.1.03
+======================================
+*Updated lines 159 and 167 in fix-divi-tabs-accordions-toggles.js so that id and aria-labelledby attributes correctly match and corrected the spelling of "aria-labelledby".
+
 Version 1.1.02
 ======================================
 *header-new.php: Added aria label of "Primary Menu" to nav tags on lines 204 and 279.  This label can be changed to whatever is most appropriate for your design
