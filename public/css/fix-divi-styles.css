@@ -154,7 +154,7 @@ button.et_close_search_field .fd-close:after{
 }
 
 .menu-trigger .fd-open:after{
-	content: "\33";
+	content: "\33" / "";
 }
 
 .menu-trigger .fd-close:after{
@@ -162,7 +162,7 @@ button.et_close_search_field .fd-close:after{
 }
 
 .menu-trigger.open .fd-close:after{
-	content: "\32";
+	content: "\32" / "";
 }
 .menu-trigger.open .fd-open:after{
 	content: "";
