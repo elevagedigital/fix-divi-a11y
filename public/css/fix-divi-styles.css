@@ -207,6 +207,19 @@ button.et_close_search_field .fd-close:after{
     visibility: visible;
 }
 
+.sub-menu button.menu-trigger-without-link{
+	width: 200px;
+	text-align: left;
+	display: flex;
+	flex-direction: row;
+}
+
+.sub-menu button.menu-trigger-without-link span.btn-label{
+	width: 85%;
+}
+.sub-menu button.menu-trigger-without-link span.icon-holder{
+	width: 15%;
+}
 
 /*Custom Mobile Menu*/
 .et_mobile_menu li a {
