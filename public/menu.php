@@ -76,7 +76,7 @@
 			$customstylechild = $customstylechild . "color: ". get_option('et_divi')['primary_nav_dropdown_link_color']. " !important;";
 		}
 		else{
-			$customstylechild = $customstylechild . "color: rgba(131,0,233,0.6) !important;";
+			$customstylechild = $customstylechild . "color: rgba(0,0,0,0.7) !important;";
 		}
 		
 		echo("<style>#top-menu li button{". $customstyle ."} #top-menu li.current-menu-item .link-button-wrap a, #top-menu li.current-menu-item .link-button-wrap button, #top-menu li.current-menu-ancestor .link-button-wrap a, #top-menu li.current-menu-ancestor .link-button-wrap button{". $customstyleactive. "} #top-menu li li button, #top-menu li.current-menu-item li .link-button-wrap a, #top-menu li.current-menu-item li .link-button-wrap button  {". $customstylechild ."} .et_mobile_menu li button .btn-label{". $customstylemobile . "}</style>");
