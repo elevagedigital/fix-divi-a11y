@@ -65,6 +65,10 @@
 			$customstyle = $customstyle . "color: ". get_option('et_divi')['menu_link']. " !important;";
 			$customstylemobile = $customstylemobile . "color: ". get_option('et_divi')['menu_link']. " !important;";
 		}
+		else{
+			$customstyle = $customstyle . "color: rgba(0,0,0,0.6) !important;";
+			$customstylemobile = $customstylemobile . "color: rgba(0,0,0,0.6) !important;";
+		}
 		if ( isset(get_option('et_divi')['menu_link_active'])) {
 			$customstyleactive = $customstyleactive . "color: ". get_option('et_divi')['menu_link_active']. " !important;";
 		}
@@ -129,6 +133,9 @@
 		}
 		if ( isset(get_option('et_divi')['slide_nav_links_color'])) {
 			$customstyleslide = $customstyleslide . "color: ". get_option('et_divi')['slide_nav_links_color']. " !important;";
+		}
+		else {
+			$customstyleslide = $customstyleslide . "color: #FFFFFF !important;";
 		}
 		if ( isset(get_option('et_divi')['slide_nav_links_color_active'])) {
 			$customstyleslideactive = $customstyleslideactive . "color: ". get_option('et_divi')['slide_nav_links_color_active']. " !important;";
