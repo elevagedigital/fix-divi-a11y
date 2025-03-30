@@ -31,6 +31,7 @@
 
 	function custom_nav_styles(){
 		
+		$fontstyle="";
 		$customstyle="";
 		$customstylechild="";
 		$customstyleactive="";
@@ -43,6 +44,9 @@
 		if ( isset(get_option('et_divi')['primary_nav_font_size']) && get_option('et_divi')['primary_nav_font_size'] !="14" ) {
 			$customstyle = $customstyle . "font-size: " . get_option('et_divi')['primary_nav_font_size'] ."px !important;";
 		}
+		else{
+			$customstyle = $customstyle . "font-size: 14px !important;";
+		}
 		if ( isset(get_option('et_divi')['primary_nav_font_spacing']) && get_option('et_divi')['primary_nav_font_spacing'] != '0') {
 			$customstyle = $customstyle . "letter-spacing: " . get_option('et_divi')['primary_nav_font_spacing'] ."px !important;";
 		}
@@ -54,6 +58,9 @@
 		}
 		if ( str_contains($fontstyle,'italic') ){
 			$customstyle = $customstyle . "font-style: italic !important;";
+		}
+		else{
+			$customstyle = $customstyle . "font-weight: 600 !important;";
 		}
 		if ( str_contains($fontstyle,'uppercase') ){
 			$customstyle = $customstyle . "text-transform: uppercase !important;";
@@ -106,6 +113,7 @@
 	function custom_slide_nav_styles(){
 		$customstyleslide="";
 		$customstyleslideactive="";
+		$fontstyleslide="";
 
 		if ( isset(get_option('et_divi')['slide_nav_font']) && get_option('et_divi')['slide_nav_font'] != "" ) {
 			$customstyleslide = $customstyleslide . "font-family: " . get_option('et_divi')['slide_nav_font'] ." !important;";
