@@ -6,7 +6,7 @@
 				var buttonHtml;
 				var linkText = $(this).text();
 				if($(this).attr("href")=="#"){
-					buttonHtml = '<button class="menu-trigger menu-trigger-without-link" aria-expanded="false">' + linkText + '<i class="fd-open" aria-hidden="false"><span class="screen-reader-text">Open ' + linkText +' Submenu</span></i><i class="fd-close" aria-hidden="true"><span class="screen-reader-text">Close ' + linkText +' Submenu</span></i></button>';
+					buttonHtml = '<button class="menu-trigger menu-trigger-without-link" aria-expanded="false"><span class="btn-label">' + linkText + '</span><span class="icon-holder"><i class="fd-open" aria-hidden="false"><span class="screen-reader-text">Open ' + linkText +' Submenu</span></i><i class="fd-close" aria-hidden="true"><span class="screen-reader-text">Close ' + linkText +' Submenu</span></i></span></button>';
 					$(this).replaceWith(buttonHtml);
 				}
 				else{
