@@ -1,5 +1,9 @@
 # fix-divi-a11y
 
+Version 1.2
+======================================
+*Significant update to menu styling to better support combinations of links and buttons within dropdown menus.  Button styles now reflect the link styles that are set within the Appearance > Customize > Header & Navigation settings.  These changes apply to the five standard Divi heading styles: Default, Centered, Centered Inline Logo, Slidein, and Full Screen. If you are using the Divi Theme Builder to create a custom header, you will need to use custom CSS to style any buttons that open dropdown menus.
+
 Version 1.1.03
 ======================================
 *Updated lines 159 and 167 in fix-divi-tabs-accordions-toggles.js so that id and aria-labelledby attributes correctly match and corrected the spelling of "aria-labelledby".
