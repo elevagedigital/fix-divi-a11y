@@ -44,4 +44,4 @@ Directions
 ====================================================
 1. Install plugin
 2. Go to Settings > Fix Divi A11y to set your focus indicator color
-3. Copy the contents of header-new.php (based on Divi version 4.25.2) to your header.php file
+3. Copy the contents of header-new.php and footer-new.php (based on Divi version 4.25.2) to header.php and footer.php in your child theme
