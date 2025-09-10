@@ -107,7 +107,7 @@ jQuery(document).ready(function($) {
 	
 	/**
 	*
-	* Accordions & Toggles - Credit: CampusPress
+	* Accordions & Toggles - Credit: CampusPress, modified by SeaMonster Studios
 	*
 	**/
 	
@@ -123,7 +123,6 @@ jQuery(document).ready(function($) {
 	
 	$('.et_pb_accordion_item .et_pb_toggle_title').each(function (e) {
 		$(this).attr({
-			'role':'button',
 			'aria-controls': 'et_pb_accordion_content_' + e,
 			'id': 'et_pb_accordion_control_' + e,
 			'tabindex': '0'
@@ -132,7 +131,6 @@ jQuery(document).ready(function($) {
 	
 	$('.et_pb_toggle_item .et_pb_toggle_title').each(function (e) {
 		$(this).attr({
-			'role':'button',
 			'aria-controls': 'et_pb_toggle_content_' + e,
 			'id': 'et_pb_toggle_control_' + e,
 			'tabindex': '0'
@@ -141,32 +139,26 @@ jQuery(document).ready(function($) {
 	
 	
 	$('.et_pb_toggle_open .et_pb_toggle_title').each(function () {
-		$(this).attr({
-			'aria-expanded': 'true',
-			'aria-disabled': 'true'
-		});
+		$(this).attr('aria-expanded', 'true');
 	});
 	
 	$('.et_pb_toggle_close .et_pb_toggle_title').each(function () {
-		$(this).attr({
-			'aria-expanded': 'false',
-			'aria-disabled': 'false'
-		});
+		$(this).attr('aria-expanded', 'false');
 	});
 	
 	$('.et_pb_accordion_item .et_pb_toggle_content').each(function (e){
 		$(this).attr({
-			'id':'et_pb_accordion_content_' + e,
+			'id':'et_pb_accordion_content' + e,
 			'role': 'region',
-			'aria-labelledby': 'et_pb_accordion_control_' + e
+			'aria-labeledby': 'et_pb_accordion_control_' + e
 		});
 	});
 	
 	$('.et_pb_toggle_item .et_pb_toggle_content').each(function (e){
 		$(this).attr({
-			'id':'et_pb_toggle_content_' + e,
+			'id':'et_pb_toggle_content' + e,
 			'role': 'region',
-			'aria-labelledby': 'et_pb_toggle_control_' + e
+			'aria-labeledby': 'et_pb_toggle_control_' + e
 		});
 	});
 	
@@ -184,21 +176,22 @@ jQuery(document).ready(function($) {
 	
 	
 	/* click events - accordion */
-	$('.et_pb_accordion_item .et_pb_toggle_title').on('click', function (e) {
-		e.preventDefault();
-		var thisID = "#" + $(this).attr("id");
-		if($(this).attr("aria-disabled")=="false"){
-			$(".et_pb_accordion .et_pb_toggle_title").each(function(){
-				$(this).attr({'aria-expanded': 'false','aria-disabled': 'false'});
-				$(this).parent().addClass("et_pb_toggle_close").removeClass("et_pb_toggle_open");
+	$('.et_pb_accordion_item .et_pb_toggle_title').on('click', function() {
+		var $accordion_container = $(this).closest('.et_pb_accordion');
+
+		setTimeout(function() {
+			$accordion_container.find('.et_pb_toggle_title').each(function() {
+				var $this_item = $(this).closest('.et_pb_accordion_item');
+
+				if ($this_item.hasClass('et_pb_toggle_open')) {
+					$(this).attr('aria-expanded', 'true');
+					$(this).next('.et_pb_toggle_content').attr('aria-hidden', 'false');
+				} else {
+					$(this).attr('aria-expanded', 'false');
+					$(this).next('.et_pb_toggle_content').attr('aria-hidden', 'true');
+				}
 			});
-			$(".et_pb_accordion .et_pb_toggle_content").each(function(){
-				$(this).attr('aria-hidden', 'true');
-			});
-			$(thisID).next().attr('aria-hidden', 'false');
-			$(thisID).attr({'aria-expanded': 'true','aria-disabled': 'true'});
-			$(thisID).parent().addClass("et_pb_toggle_open").removeClass("et_pb_toggle_close");
-		}
+		}, 750); 
 	});
 	
 	/* control with enter or space */
@@ -210,16 +203,21 @@ jQuery(document).ready(function($) {
 	});	
 	
 	/* click events - toggle */
-	$('.et_pb_toggle_item .et_pb_toggle_title').on('click', function () {
-		var thisID = "#" + $(this).attr("id");
-		if($(this).attr("aria-expanded")=="false"){
-			$(thisID).next().attr('aria-hidden', 'false');
-			$(thisID).attr({'aria-expanded': 'true','aria-disabled': 'false'});
-		}
-		else{
-			$(thisID).next().attr('aria-hidden', 'true');
-			$(thisID).attr({'aria-expanded': 'false','aria-disabled': 'false'});
-		}
+	$('.et_pb_toggle_item .et_pb_toggle_title').on('click', function() {
+		var $this_toggle_title = $(this);
+		var $this_item = $this_toggle_title.closest('.et_pb_toggle_item');
+
+		// Use a short delay to allow Divi's animation and classes to be applied first
+		setTimeout(function() {
+			// Check if Divi has marked this item as open
+			if ($this_item.hasClass('et_pb_toggle_open')) {
+				$this_toggle_title.attr('aria-expanded', 'true');
+				$this_toggle_title.next('.et_pb_toggle_content').attr('aria-hidden', 'false');
+			} else {
+				$this_toggle_title.attr('aria-expanded', 'false');
+				$this_toggle_title.next('.et_pb_toggle_content').attr('aria-hidden', 'true');
+			}
+		}, 750); 
 	});
 	
 	/* control with enter or space */
