@@ -15,7 +15,7 @@ do_action( 'et_after_main_content' );
 
 if ( 'on' === et_get_option( 'divi_back_to_top', 'false' ) ) : ?>
 
-	<span class="et_pb_scroll_top et-pb-icon"></span>
+	<a href="#main-content" id="scroll-top" class="fixdivi_et_pb_scroll_top et-pb-icon" aria-label="move to the top of the main content"></a>
 
 <?php endif;
 

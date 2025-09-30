@@ -1,5 +1,14 @@
 # fix-divi-a11y
 
+Version 1.3
+======================================
+* Focus Indicator Styling: Updated settings to pick focus indicator style and color(s)
+* Accordion changes: Separated accodrion header from button functionality so headings are represented in document structure
+* Back to Top link: Made back to top link keyboard operable (requires edit to footer.php)
+* These changes may have visual impacts, so it is recommended that you test on a non-production environment first
+* For more details on updates, go to https://elevagedigital.com/fix-divi-a11y-plugin-version-1-3-released/
+  
+
 Version 1.2
 ======================================
 *Significant update to menu styling to better support combinations of links and buttons within dropdown menus.  Button styles now reflect the link styles that are set within the Appearance > Customize > Header & Navigation settings.  These changes apply to the five standard Divi heading styles: Default, Centered, Centered Inline Logo, Slidein, and Full Screen. If you are using the Divi Theme Builder to create a custom header, you will need to use custom CSS to style any buttons that open dropdown menus.

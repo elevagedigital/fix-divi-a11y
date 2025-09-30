@@ -476,3 +476,47 @@ button.et_close_search_field .fd-close:after{
 .et_password_protected_form label{
 	display: block !important;
 }
+
+/*Accordion/Toggle Button*/
+.et_pb_toggle_title>button{
+	border: none !important;
+	background: none !important;
+	font-size: inherit !important;
+	font-family: inherit !important;
+	color: inherit !important;
+	font-style: inherit !important;
+	font-weight: inherit !important;
+	letter-spacing: inherit !important;
+	text-transform: inherit !important;
+}
+
+/*back to top*/
+.fixdivi_et_pb_scroll_top.et-pb-icon {
+    text-align: center;
+    background: rgba(0,0,0,0.4);
+    text-decoration: none;
+    position: fixed;
+    z-index: 99999;
+    bottom: 125px;
+    right: 0px;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    display: none;
+    cursor: pointer;
+    font-size: 30px;
+    padding: 5px;
+    color: #fff;
+}
+
+.fixdivi_et_pb_scroll_top.et-pb-icon:before{
+	content: '2';
+}
+
+.fixdivi_et_pb_scroll_top.et-visible{
+	opacity: 1;
+	display: inline;
+}

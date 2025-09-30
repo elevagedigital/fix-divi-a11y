@@ -13,6 +13,17 @@ jQuery(document).ready(function($) {
 	$("#skip-link").on("click", function(){
 		$('[role="main"]').attr("tabIndex", "0").focus();
 	})
+
+	/*scroll to top*/
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 200){
+		$("#scroll-top").addClass("et-visible");
+		}
+	});
+	
+	$("#scroll-top").on("click", function(){
+		$('[role="main"]').attr("tabIndex", "0").focus();
+	});
 	
 	/*add aria role for sidebar*/
 	$("#sidebar").attr("role","complimentary");

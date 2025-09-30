@@ -107,7 +107,7 @@ jQuery(document).ready(function($) {
 	
 	/**
 	*
-	* Accordions & Toggles - Credit: CampusPress
+	* Accordions & Toggles - Credit: CampusPress, modified by Elevage Digital
 	*
 	**/
 	
@@ -122,32 +122,24 @@ jQuery(document).ready(function($) {
 	});
 	
 	$('.et_pb_accordion_item .et_pb_toggle_title').each(function (e) {
-		$(this).attr({
-			'role':'button',
-			'aria-controls': 'et_pb_accordion_content_' + e,
-			'id': 'et_pb_accordion_control_' + e,
-			'tabindex': '0'
-		});							  
+		var $thisTitle = $(this).text();
+		$(this).html('<button aria-controls="et_pb_accordion_content_'+e+'" id="et_pb_accordion_control_'+e+'">'+$thisTitle+'</button>');						  
 	});
 	
 	$('.et_pb_toggle_item .et_pb_toggle_title').each(function (e) {
-		$(this).attr({
-			'role':'button',
-			'aria-controls': 'et_pb_toggle_content_' + e,
-			'id': 'et_pb_toggle_control_' + e,
-			'tabindex': '0'
-		});							  
+		var $thisTitle = $(this).text();
+		$(this).html('<button aria-controls="et_pb_toggle_content_'+e+'" id="et_pb_toggle_control_'+e+'">'+$thisTitle+'</button>');						  
 	});
 	
 	
-	$('.et_pb_toggle_open .et_pb_toggle_title').each(function () {
+	$('.et_pb_toggle_open .et_pb_toggle_title button').each(function () {
 		$(this).attr({
 			'aria-expanded': 'true',
 			'aria-disabled': 'true'
 		});
 	});
 	
-	$('.et_pb_toggle_close .et_pb_toggle_title').each(function () {
+	$('.et_pb_toggle_close .et_pb_toggle_title button').each(function () {
 		$(this).attr({
 			'aria-expanded': 'false',
 			'aria-disabled': 'false'
@@ -184,25 +176,31 @@ jQuery(document).ready(function($) {
 	
 	
 	/* click events - accordion */
-	$('.et_pb_accordion_item .et_pb_toggle_title').on('click', function (e) {
+	$('.et_pb_accordion_item .et_pb_toggle_title button').on('click', function (e) {
 		e.preventDefault();
-		var thisID = "#" + $(this).attr("id");
-		if($(this).attr("aria-disabled")=="false"){
-			$(".et_pb_accordion .et_pb_toggle_title").each(function(){
-				$(this).attr({'aria-expanded': 'false','aria-disabled': 'false'});
-				$(this).parent().addClass("et_pb_toggle_close").removeClass("et_pb_toggle_open");
+		
+		/* Add Timeout - Credit: SeaMonster Studios*/
+		var $accordion_container = $(this).closest('.et_pb_accordion');
+		
+		setTimeout(function() {
+			$accordion_container.find('.et_pb_toggle_title button').each(function() {
+				var $this_item = $(this).closest('.et_pb_accordion_item');
+
+				if ($this_item.hasClass('et_pb_toggle_open')) {
+					$(this).attr({'aria-expanded': 'true','aria-disabled': 'true'});
+					$(this).parent().next('.et_pb_toggle_content').attr('aria-hidden', 'false');
+				} else {
+					$(this).attr({'aria-expanded': 'false','aria-disabled': 'false'});
+					$(this).parent().next('.et_pb_toggle_content').attr('aria-hidden', 'true');
+				}
 			});
-			$(".et_pb_accordion .et_pb_toggle_content").each(function(){
-				$(this).attr('aria-hidden', 'true');
-			});
-			$(thisID).next().attr('aria-hidden', 'false');
-			$(thisID).attr({'aria-expanded': 'true','aria-disabled': 'true'});
-			$(thisID).parent().addClass("et_pb_toggle_open").removeClass("et_pb_toggle_close");
-		}
+
+		}, 750);
+		
 	});
 	
 	/* control with enter or space */
-	$('.et_pb_accordion_item .et_pb_toggle_title').on('keyup', function(n){
+	$('.et_pb_accordion_item .et_pb_toggle_title button').on('keyup', function(n){
 		if(n.keyCode==13 || n.keyCode==32){ //enter and space bar
 			n.preventDefault();
 			$(this).trigger('click');
@@ -210,20 +208,21 @@ jQuery(document).ready(function($) {
 	});	
 	
 	/* click events - toggle */
-	$('.et_pb_toggle_item .et_pb_toggle_title').on('click', function () {
+	$('.et_pb_toggle_item .et_pb_toggle_title button').on('click', function () {
+		
 		var thisID = "#" + $(this).attr("id");
 		if($(this).attr("aria-expanded")=="false"){
-			$(thisID).next().attr('aria-hidden', 'false');
+			$(thisID).parent().next().attr('aria-hidden', 'false');
 			$(thisID).attr({'aria-expanded': 'true','aria-disabled': 'false'});
 		}
 		else{
-			$(thisID).next().attr('aria-hidden', 'true');
+			$(thisID).parent().next().attr('aria-hidden', 'true');
 			$(thisID).attr({'aria-expanded': 'false','aria-disabled': 'false'});
 		}
 	});
 	
 	/* control with enter or space */
-	$('.et_pb_toggle_item .et_pb_toggle_title').on('keyup', function(n){
+	$('.et_pb_toggle_item .et_pb_toggle_title button').on('keyup', function(n){
 		if(n.keyCode==13 || n.keyCode==32){ //enter and space bar
 			$(this).trigger('click');
 		}
