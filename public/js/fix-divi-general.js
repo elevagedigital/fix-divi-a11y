@@ -12,8 +12,8 @@ jQuery(document).ready(function($) {
 	/*move skip link to main landmark div*/
 	$("#skip-link").on("click", function(){
 		$('[role="main"]').attr("tabIndex", "0").focus();
-	})
-
+	});
+	
 	/*scroll to top*/
 	$(window).scroll(function(){
 		if ($(this).scrollTop() > 200){
@@ -26,7 +26,7 @@ jQuery(document).ready(function($) {
 	});
 	
 	/*add aria role for sidebar*/
-	$("#sidebar").attr("role","complimentary");
+	$("#sidebar").attr("role","complementary");
 
 	/*no tab/screen reader to hidden search*/
 	$(".et_search_outer").attr("aria-hidden","true");
@@ -38,15 +38,16 @@ jQuery(document).ready(function($) {
 	/*open search field*/
 	$(".fd-access-search").on("click", function(n){
 		n.preventDefault();
+		var formHeight= $("header").attr("data-height-onload");
 		$(".et_search_outer").attr("aria-hidden","false");
 		$(".et_search_outer .et-search-form input").each(function(){
-		$(this).attr("tabIndex","0");
+			$(this).attr("tabIndex","0");
 		});
 		$(".et_search_outer .fd-close-search").attr("tabIndex","0");
 		$(this).hide();
 		$(".fd-close-search").show();
 		$(".et_menu_container").addClass("et_pb_menu_hidden et_pb_no_animation").removeClass("et_pb_menu_visible");
-		$(".et_search_outer .et_search_form_container").addClass("et_pb_search_visible et_pb_no_animation").removeClass("et_pb_search_form_hidden");
+		$(".et_search_outer .et_search_form_container").addClass("et_pb_search_visible et_pb_no_animation").removeClass("et_pb_search_form_hidden").attr("style","height:" +formHeight+"px");
 		setTimeout(function () {
 			$(".et-search-field").focus();
 		}, 100);
@@ -54,8 +55,9 @@ jQuery(document).ready(function($) {
 	});
 	
 	$(".fd-access-search").on("keydown", function(n){
-		if(n.keyCode==13){ //enter
+		if(n.keyCode==13 || n.keyCode==32){ //enter
 			n.preventDefault();
+			var formHeight= $("header").attr("data-height-onload");
 			$(".et_search_outer").attr("aria-hidden","false");
 			$(".et_search_outer .et-search-form input").each(function(){
 			$(this).attr("tabIndex","0");
@@ -64,7 +66,7 @@ jQuery(document).ready(function($) {
 			$(this).hide();
 			$(".fd-close-search").show();
 			$(".et_menu_container").addClass("et_pb_menu_hidden et_pb_no_animation").removeClass("et_pb_menu_visible");
-			$(".et_search_outer .et_search_form_container").addClass("et_pb_search_visible et_pb_no_animation").removeClass("et_pb_search_form_hidden");
+			$(".et_search_outer .et_search_form_container").addClass("et_pb_search_visible et_pb_no_animation").removeClass("et_pb_search_form_hidden").attr("style","height:" +formHeight+"px");
 			setTimeout(function () {
 				$(".et-search-field").focus();
 			}, 100);
@@ -79,14 +81,14 @@ jQuery(document).ready(function($) {
 		$(this).attr("tabIndex","-1");
 		});
 		$(".et_search_outer .fd-close-search").attr("tabIndex","-1");
-		$("et_search_outer .et_search_form_container").addClass("et_pb_search_hidden").removeClass("et_pb_search_form_visible");
+		$("et_search_outer .et_search_form_container").addClass("et_pb_search_hidden").removeClass("et_pb_search_form_visible").removeAttr("style");
 		setTimeout(function () {
 			$(".fd-access-search").show().focus();
 		}, 100);
 	});
 	
 	$(".fd-close-search").on("keydown", function(n){
-		if(n.keyCode==13 || n.keyCode==27 || n.keyCode==35 || n.keyCode==36){ //enter, esc, end, home
+		if(n.keyCode==13 || n.keyCode==32 || n.keyCode==27 || n.keyCode==35 || n.keyCode==36){ //enter, space, esc, end, home
 			n.preventDefault();
 			$(".et_search_outer").attr("aria-hidden","true");
 			$(".et_search_outer .et-search-form input").each(function(){
@@ -95,7 +97,7 @@ jQuery(document).ready(function($) {
 			$(".et_search_outer .fd-close-search").attr("tabIndex","-1");
 			$(this).hide();
 			$(".et_menu_container").removeClass("et_pb_menu_hidden et_pb_no_animation").addClass("et_pb_menu_visible");
-			$(".et_search_outer .et_search_form_container").removeClass("et_pb_search_visible et_pb_no_animation").addClass("et_pb_search_form_hidden");
+			$(".et_search_outer .et_search_form_container").removeClass("et_pb_search_visible et_pb_no_animation").addClass("et_pb_search_form_hidden").removeAttr("style");
 			setTimeout(function () {
 				$(".fd-access-search").show().focus();
 			}, 100);
