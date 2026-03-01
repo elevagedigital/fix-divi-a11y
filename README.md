@@ -1,5 +1,16 @@
 # fix-divi-a11y
 
+Version 1.4
+====================================
+* Included keyboard support for sub-sub menus
+* Tested with an extended combination of browsers and screen readers
+* Added navigation role to Default mobile menu
+* Added region role to Slide-in Menu Container
+* Submenus are closed by default in Theme Builder version of header
+* Tested with public version of Divi5 (5.0.1)
+* For more details on updates, go to https://elevagedigital.com/fix-divi-a11y-plugin-version-1-4-released/
+
+
 Version 1.3
 ======================================
 * Focus Indicator Styling: Updated settings to pick focus indicator style and color(s)

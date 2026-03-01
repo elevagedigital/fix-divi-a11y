@@ -128,8 +128,7 @@
 
 	<?php if ( $et_slide_header || is_customize_preview() ) : ?>
 		<?php ob_start(); ?>
-		<div class="et_slide_in_menu_container">
-			<div class="a11y-close-button-wrap a11y-close-top"><button id="a11y-close-menu-top" class="a11y-close-menu" tabindex="0">Close Menu</button></div>
+		<div class="et_slide_in_menu_container" role="region" aria-label="Slide In Menu" style="display: none;">
 			<?php if ( 'fullscreen' === et_get_option( 'header_style', 'left' ) || is_customize_preview() ) { ?>
 				<span class="mobile_menu_bar et_toggle_fullscreen_menu"></span>
 			<?php } ?>
@@ -201,7 +200,7 @@
 					$slide_nav = wp_nav_menu( array( 'theme_location' => 'primary-menu', 'container' => '', 'fallback_cb' => '', 'echo' => false, 'items_wrap' => '%3$s' ) );
 					$slide_nav .= wp_nav_menu( array( 'theme_location' => 'secondary-menu', 'container' => '', 'fallback_cb' => '', 'echo' => false, 'items_wrap' => '%3$s' ) );
 				?>
-				<nav id="mobile-menu-slide-nav" aria-label="Primary Menu">
+				<nav id="mobile-menu-slide-nav" aria-label="Primary">
 				<ul id="mobile_menu_slide" class="<?php echo esc_attr( $slide_menu_class ); ?>">
 
 				<?php
@@ -276,7 +275,7 @@
 			?>
 				<div id="et-top-navigation" data-height="<?php echo esc_attr( et_get_option( 'menu_height', '66' ) ); ?>" data-fixed-height="<?php echo esc_attr( et_get_option( 'minimized_menu_height', '40' ) ); ?>">
 					<?php if ( ! $et_slide_header || is_customize_preview() ) : ?>
-						<nav id="top-menu-nav" aria-label="Primary Menu">
+						<nav id="top-menu-nav" aria-label="Primary">
 						<?php
 							$menuClass = 'nav';
 							if ( 'on' === et_get_option( 'divi_disable_toptier' ) ) $menuClass .= ' et_disable_top_tier';
