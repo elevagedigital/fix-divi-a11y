@@ -36,7 +36,7 @@ if ( ! is_page_template( 'page-template-blank.php' ) ) : ?>
 								'depth'          => '1',
 								'menu_class'     => 'bottom-nav',
 								'container'      => 'nav',
-								'container_aria_label' => 'Footer menu',
+								'container_aria_label' => 'Footer',
 								'fallback_cb'    => '',
 							) );
 						?>
