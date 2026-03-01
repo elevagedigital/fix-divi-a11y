@@ -15,6 +15,10 @@ jQuery(document).ready(function($) {
 	});
 	
 	/*scroll to top*/
+	if( $("body").hasClass("et-tb-has-header") ){
+		$(".et_pb_scroll_top").replaceWith('<a href="#main-content" id="scroll-top" class="fixdivi_et_pb_scroll_top et-pb-icon" aria-label="move to the top of the main content"></a>');
+	}
+	
 	$(window).scroll(function(){
 		if ($(this).scrollTop() > 200){
 		$("#scroll-top").addClass("et-visible");
@@ -119,3 +123,4 @@ jQuery(document).ready(function($) {
 	});
 	
 });
+
