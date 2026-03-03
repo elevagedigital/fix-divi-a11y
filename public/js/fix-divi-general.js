@@ -116,11 +116,18 @@ jQuery(document).ready(function($) {
 	$(".more-link").each(function(){
 		var linkText = $(this).text();
 		if (linkText.toLowerCase()=='read more'){
-			var itemTitle=$(this).parent().parent().find(".entry-title a").text();
+			var itemTitle;
+			if($(this).parent().parent().find(".entry-title a").length>0){
+				itemTitle=$(this).parent().parent().find(".entry-title a").text();
+			}
+			else{
+				itemTitle=$(this).parent().parent().find(".entry-title").text();
+			}
 			var ariaLabel = linkText + " of " + itemTitle.trim();
 			$(this).attr("aria-label", ariaLabel);
 		}
 	});
 	
 });
+
 
