@@ -200,10 +200,11 @@ jQuery(document).ready(function($) {
 	});
 	
 	/* control with enter or space */
-	$('.et_pb_accordion_item .et_pb_toggle_title button').on('keyup', function(n){
+	$('.et_pb_accordion_item .et_pb_toggle_title button').on('keydown', function(n){
 		if(n.keyCode==13 || n.keyCode==32){ //enter and space bar
 			n.preventDefault();
-			$(this).trigger('click');
+			n.stopPropagation();
+			this.click();
 		}
 	});	
 	
@@ -222,9 +223,11 @@ jQuery(document).ready(function($) {
 	});
 	
 	/* control with enter or space */
-	$('.et_pb_toggle_item .et_pb_toggle_title button').on('keyup', function(n){
+	$('.et_pb_toggle_item .et_pb_toggle_title button').on('keydown', function(n){
 		if(n.keyCode==13 || n.keyCode==32){ //enter and space bar
-			$(this).trigger('click');
+			n.preventDefault();
+			n.stopPropagation();
+			this.click();
 		}
 	});	
 });
