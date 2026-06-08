@@ -73,7 +73,8 @@
 			});
 
 			//click control for submenu
-			$(".mobile_nav").on("click", "button", function(){
+			$(".mobile_nav").on("click", "button", function(n){
+				n.stopPropagation();
 				if($(this).hasClass("open")){
 					$(this).removeClass("open");
 					$(this).find(".fd-open").attr("aria-hidden","false");
