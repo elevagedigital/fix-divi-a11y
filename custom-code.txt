@@ -28,3 +28,4 @@ $playStop.on("click", function (e) {
 		playing=false;
     }
 });
+$("#video-play-stop").attr("role","button");
