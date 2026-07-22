@@ -1,5 +1,9 @@
 # fix-divi-a11y
 
+Version 1.4.1
+===================================
+* Removed aria-expanded attribute from tabs
+
 Version 1.4
 ====================================
 * Included keyboard support for sub-sub menus
