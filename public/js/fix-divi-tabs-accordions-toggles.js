@@ -23,15 +23,13 @@ jQuery(document).ready(function($) {
 	$('.et_pb_tabs_controls li.et_pb_tab_active a').each(function () {
 		$(this).attr({
 			'aria-selected': 'true',
-			'aria-expanded': 'true',
 			tabindex: 0
 		});
 	});
-	
+
 	$('.et_pb_tabs_controls li:not(.et_pb_tab_active) a').each(function () {
 		$(this).attr({
 			'aria-selected': 'false',
-			'aria-expanded': 'false',
 			tabindex: -1
 		});
 	});
@@ -69,13 +67,11 @@ jQuery(document).ready(function($) {
 		
 		$('[id="' + tabsId + '"] .et_pb_tabs_controls a').attr({
 			'aria-selected': 'false',
-			'aria-expanded': 'false',
 			tabindex: -1
 		});
-		
+
 		$(this).attr({
 			'aria-selected': 'true',
-			'aria-expanded': 'true',
 			tabindex: 0
 		});
 		
